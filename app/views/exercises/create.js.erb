@@ -1,0 +1,3 @@
+$("form#new_exercise").remove()
+$("#new-exercise-link").show()
+$("table#exercises-list").append("<tr id='exercise-item-<%= @exercise.id %>'><td class='exercise-name'><%= j link_to @exercise.name, edit_exercise_path(@exercise), class: 'edit-exercise-link', remote: true %></td><td class='exercise-calories'><%= @exercise.calories %></td><td><%= j link_to 'Delete', exercise_path(@exercise), data: { confirm: 'Are you sure?'}, remote: true, method: :delete %></td></tr>");

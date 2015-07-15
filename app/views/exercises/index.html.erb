@@ -1,0 +1,19 @@
+<%= link_to "Add exercise", new_exercise_path, id: "new-exercise-link", remote: true %>
+<div id="new-exercise-form-container">
+</div>
+<table id="exercises-list">
+  <tr>
+    <th> Name </th>
+    <th> Calories </th>
+    <th> Controls </th>
+  </tr>
+  <% @exercises.each do |exercise| %>
+    <tr id='exercise-item-<%= exercise.id %>'>
+      <td class="exercise-name"><%= link_to exercise.name, edit_exercise_path(exercise), class: 'edit-exercise-link', remote: true %></td>
+      <td class="exercise-calories"><%= exercise.calories %></td>
+      <td>
+        <%= link_to "Delete", exercise_path(exercise), data: { confirm: "Are you sure?"}, remote: true, method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>

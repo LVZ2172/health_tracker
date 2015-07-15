@@ -50,6 +50,15 @@ class FoodsController < ApplicationController
   def show
   end
 
+  def destroy
+    @food = Food.find(params[:id])
+    @food.destroy
+    respond_to do |format|
+      format.html { redirect_to foods_path }
+      format.js
+    end
+  end
+
   private
 
   def food_params

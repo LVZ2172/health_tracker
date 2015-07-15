@@ -1,0 +1,4 @@
+$("form#edit_exercise_<%= @exercise.id %>").fadeOut("fast");
+$("#new-exercise-link").fadeIn("fast");
+$('#exercise-item-<%= @exercise.id %> .exercise-name .edit-exercise-link').text('<%= @exercise.name %>');
+$('#exercise-item-<%= @exercise.id %> .exercise-calories').text('<%= @exercise.calories %>');

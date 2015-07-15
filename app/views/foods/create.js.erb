@@ -1,4 +1,4 @@
-$("table#foods-list").append("<tr id='food-item-<%= @food.id %>'><td class='food-name'><%= j link_to @food.name, edit_food_path(@food), class: 'edit-food-link', remote: true %></td><td class='food-calories'><%= @food.calories %></td></tr>");
+$("table#foods-list").append("<tr id='food-item-<%= @food.id %>'><td class='food-name'><%= j link_to @food.name, edit_food_path(@food), class: 'edit-food-link', remote: true %></td><td class='food-calories'><%= @food.calories %></td><td><%= j link_to 'Delete', food_path(@food), data: { confirm: 'Are you sure?'}, remote: true, method: :delete %></td></tr>");
 $("form#new_food").fadeOut("fast");
 $("#new-food-link").fadeIn("fast");
 // DO LATER $('.flash-message').fadeOut(3000);

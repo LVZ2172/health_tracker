@@ -3,13 +3,17 @@
 </div>
 <table id="foods-list">
   <tr>
-    <th> Name: </th>
+    <th> Name </th>
     <th> Calories </th>
+    <th> Controls </th>
   </tr>
   <% @foods.each do |food| %>
     <tr id='food-item-<%= food.id %>'>
       <td class="food-name"><%= link_to food.name, edit_food_path(food), class: 'edit-food-link', remote: true %></td>
       <td class="food-calories"><%= food.calories %></td>
+      <td>
+        <%= link_to "Delete", food_path(food), data: { confirm: "Are you sure?"}, remote: true, method: :delete %>
+      </td>
     </tr>
   <% end %>
 </table>
