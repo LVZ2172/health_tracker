@@ -9,11 +9,22 @@
 <body>
   <nav class="navbar navbar-default">
   	<ul class="nav navbar-nav">
-      <li><%= link_to "Home", root_path %></li>
-  	</ul>
-    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li><%= link_to "Home", authenticated_root_path %></li>
+      <% else %>
+        <li><%= link_to "Home", unauthenticated_root_path %></li>
+      <% end %>
       <li><%= link_to "Foods", foods_path %></li>
       <li><%= link_to "Exercises", exercises_path %></li>
+  	</ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li><%= link_to ('Logged in as ' + current_user.username), edit_user_registration_path %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <li><%= link_to "Login", new_user_session_path %></li>
+      <% end %>
     </ul>
   </nav>
   <div class="container">

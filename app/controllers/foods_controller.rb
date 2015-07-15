@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
   def index
     @foods = Food.all
+    @foods = Food.search(params[:search])
   end
 
   def new
@@ -12,7 +13,7 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.new(food_params)
+    @food = current_user.foods.new(food_params)
     respond_to do |format|
       if @food.save
         flash[:notice] = "Food item added."
@@ -34,7 +35,7 @@ class FoodsController < ApplicationController
   end
 
   def update
-    @food = Food.find(params[:id])
+    @food = current_user.foods.find(params[:id])
     respond_to do |format|
       if @food.update(food_params)
         flash[:notice] = "Food item edited."

@@ -12,7 +12,7 @@ class ExercisesController < ApplicationController
   end
 
   def create
-    @exercise = Exercise.new(exercise_params)
+    @exercise = current_user.exercises.new(exercise_params)
     respond_to do |format|
       if @exercise.save
         format.html { redirect_to exercises_path}
@@ -35,7 +35,7 @@ class ExercisesController < ApplicationController
   end
 
   def update
-    @exercise = Exercise.find(params[:id])
+    @exercise = current_user.exercises.find(params[:id])
     respond_to do |format|
       if @exercise.update(exercise_params)
         format.html { redirect_to exercises_path}
