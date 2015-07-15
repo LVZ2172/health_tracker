@@ -1,0 +1,15 @@
+<%= link_to "Add food", new_food_path, id: "new-food-link", remote: true %>
+<div id="new-food-form-container">
+</div>
+<table id="foods-list">
+  <tr>
+    <th> Name: </th>
+    <th> Calories </th>
+  </tr>
+  <% @foods.each do |food| %>
+    <tr id='food-item-<%= food.id %>'>
+      <td class="food-name"><%= link_to food.name, edit_food_path(food), class: 'edit-food-link', remote: true %></td>
+      <td class="food-calories"><%= food.calories %></td>
+    </tr>
+  <% end %>
+</table>

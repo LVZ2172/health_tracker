@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HealthTracker</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+  	<ul class="nav navbar-nav">
+      <li><%= link_to "Home", root_path %></li>
+  	</ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Foods", foods_path %></li>
+      <li><%= link_to "Exercises", exercises_path %></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <p class="flash-message"><%= flash[:alert] %></p>
+    <p class="flash-message"><%= flash[:notice] %></p>
+    <%= yield %>
+  </div>
+</body>
+</html>

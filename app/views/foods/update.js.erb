@@ -1,0 +1,4 @@
+$("form#edit_food_<%= @food.id %>").fadeOut("fast");
+$("#new-food-link").fadeIn("fast");
+$('#food-item-<%= @food.id %> .food-name .edit-food-link').text('<%= @food.name %>');
+$('#food-item-<%= @food.id %> .food-calories').text('<%= @food.calories %>');
