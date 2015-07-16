@@ -1,5 +1,6 @@
 <%= simple_form_for current_user, remote: true do |f| %>
   <%= f.input :foods, collection: @foods, :label_method => :name, :value_method => :id,:include_blank => "(select if none)"%>
+  <%= f.input :date_consumed %>
   <%= f.input :exercises, collection: @exercises, :label_method => :name, :value_method => :id,:include_blank => "(select if none)"%>
   <%= f.submit %>
 <% end %>

@@ -5,3 +5,10 @@
 <div id="add-food-exercise-form">
   <%= link_to "Add Food/Exercise", edit_user_path(current_user), id: 'add-food-exercise-link', class: 'btn btn-primary', remote: true %>
 </div>
+
+<div class="row">
+  <div class="col-xs-8">
+   <h3>Total Calories consumed</h3>
+   <%= bar_chart @foods.includes(:users).group(:username).sum(:calories) %>
+ </div>
+</div>

@@ -11,6 +11,19 @@ table {
   }
 }
 
+.navbar {
+  background-color: #0071BC;
+  border-radius: 0;
+  padding: 0;
+  .navbar-nav li a {
+    color: #FFF;
+  }
+}
+
 .navbar-right li {
   padding-right: 10px;
+}
+
+li {
+  list-style-type: none;
 }

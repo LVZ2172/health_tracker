@@ -1,4 +1,6 @@
 class ExercisesController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   def index
     @exercises = Exercise.all
   end
@@ -58,6 +60,6 @@ class ExercisesController < ApplicationController
   private
 
   def exercise_params
-    params.require(:exercise).permit(:name, :calories)
+    params.require(:exercise).permit(:name, :calories, :date_performed)
   end
 end

@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
+
   def edit
     @foods = Food.all
     @exercises = Exercise.all
   end
 
   def update
+    before_filter :authenticate_user!
     @foods = Food.exists?(params[:user][:foods])
     if @foods
       current_user.foods.push(Food.find(params[:user][:foods]))
@@ -27,6 +29,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @foods = current_user.foods.all
+    @exercises = current_user.exercises.all
   end
 end

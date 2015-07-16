@@ -4,6 +4,7 @@
   <title>HealthTracker</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -32,6 +33,7 @@
     <p class="flash-message"><%= flash[:alert] %></p>
     <p class="flash-message"><%= flash[:notice] %></p>
     <%= yield %>
+    <%= yield :charts_js %>
   </div>
 </body>
 </html>

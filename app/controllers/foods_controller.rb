@@ -1,7 +1,8 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!, :except => [:index]
+
   def index
-    @foods = Food.all
-    @foods = Food.search(params[:search])
+    @foods = Food.page(params[:page]).per(10)
   end
 
   def new
@@ -63,6 +64,6 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:name, :calories)
+    params.require(:food).permit(:name, :calories, :date_consumed)
   end
 end
