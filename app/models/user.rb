@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :username, :presence => true
-  has_many :foods
-  has_many :exercises
-  
+  has_and_belongs_to_many :foods
+  has_and_belongs_to_many :exercises
+
   def total_calories
     total = (self.foods.sum(:calories)) - (self.exercises.sum(:calories))
   end

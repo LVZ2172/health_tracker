@@ -1,0 +1,13 @@
+<h4>Foods consumed:</h4>
+<ul>
+  <% current_user.foods.each do |food| %>
+    <li> <%= food.name %> </li>
+  <% end %>
+</ul>
+
+<h4>Exercises performed:</h4>
+<ul>
+  <% current_user.exercises.each do |exercise| %>
+    <li> <%= exercise.name %> </li>
+  <% end %>
+</ul>

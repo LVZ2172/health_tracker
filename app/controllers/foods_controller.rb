@@ -13,7 +13,7 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = current_user.foods.new(food_params)
+    @food = Food.new(food_params)
     respond_to do |format|
       if @food.save
         flash[:notice] = "Food item added."
@@ -35,7 +35,7 @@ class FoodsController < ApplicationController
   end
 
   def update
-    @food = current_user.foods.find(params[:id])
+    @food = Food.find(params[:id])
     respond_to do |format|
       if @food.update(food_params)
         flash[:notice] = "Food item edited."

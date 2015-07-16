@@ -1,0 +1,7 @@
+<div class="food-exercise-list">
+  <%= render 'food_exercise' %>
+</div>
+
+<div id="add-food-exercise-form">
+  <%= link_to "Add Food/Exercise", edit_user_path(current_user), id: 'add-food-exercise-link', class: 'btn btn-primary', remote: true %>
+</div>
